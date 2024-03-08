@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { pool } = require("../db/index");
 module.exports = router;
 
-//Get all class_subjects
 router.get("/", async (req, res, next) => {
   try {
     const { rows } = await pool.query("SELECT * FROM class_subjects");
@@ -13,7 +12,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//Associate a new class with a subject
 router.post("/", async (req, res, next) => {
   try {
     const { class_id, subject_id } = req.body;

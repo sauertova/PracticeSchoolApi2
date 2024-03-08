@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { pool } = require("../db/index");
 module.exports = router;
 
-//Get all subjects
 router.get("/", async (req, res, next) => {
   try {
     const { rows } = await pool.query("SELECT * FROM subjects");
@@ -13,7 +12,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//Get individual subject
 router.get("/:subject_id", async (req, res, next) => {
   try {
     const { subject_id } = req.params;
@@ -27,7 +25,6 @@ router.get("/:subject_id", async (req, res, next) => {
   }
 });
 
-//Create subject
 router.post("/", async (req, res, next) => {
   try {
     const { subject_name } = req.body;
@@ -42,7 +39,6 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-//Delete subject
 router.delete("/:subject_id", async (req, res, next) => {
   try {
     const { subject_id } = req.params;

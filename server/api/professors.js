@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { pool } = require("../db/index");
 module.exports = router;
 
-//Get all professors
 router.get("/", async (req, res, next) => {
   try {
     const { rows } = await pool.query("SELECT professor FROM classes");
@@ -13,7 +12,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//Get classes a professor teaches
 router.get("/:professor", async (req, res, next) => {
   try {
     const { professor } = req.params;

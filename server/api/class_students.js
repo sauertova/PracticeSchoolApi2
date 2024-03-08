@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { pool } = require("../db/index");
 module.exports = router;
 
-//Get all class_students
 router.get("/", async (req, res, next) => {
   try {
     const { rows } = await pool.query("SELECT * FROM class_students");
@@ -13,7 +12,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//Get all students in a particular class
 router.get("/:class_id", async (req, res, next) => {
   try {
     const { class_id } = req.params;
@@ -27,7 +25,6 @@ router.get("/:class_id", async (req, res, next) => {
   }
 });
 
-//Place students in a class
 router.post("/", async (req, res, next) => {
   try {
     const { class_id, student_id } = req.body;
@@ -43,7 +40,6 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-//Remove student from a class
 router.delete("/:student_id", async (req, res, next) => {
   try {
     const { student_id } = req.params;
